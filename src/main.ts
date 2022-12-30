@@ -1,23 +1,34 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import { setupCounter } from '../lib/main'
+import { readFile } from '../lib/main'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
+    <p>vite library examples</p>
+    <input
+      type="file"
+      id="camera"
+      capture="user"
+      accept="image/*"
+    >
   </div>
 `
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+
+window.onload = function () {
+  const input = document.querySelector('#camera') as HTMLInputElement;
+  input.onchange = function () {
+    const files = input.files;
+    if (files) {
+      const file = files[0];
+      console.info("file", file)
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        readFile(reader.result as string)
+      };
+      reader.onerror = function (error) {
+        console.log('Error: ', error);
+      };
+    }
+  };
+}

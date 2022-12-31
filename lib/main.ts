@@ -1,4 +1,4 @@
-export function setupCounter(element: HTMLButtonElement) {
+export const setupCounter = (element: HTMLButtonElement) => {
   let counter = 0
   const setCounter = (count: number) => {
     counter = count
@@ -8,8 +8,9 @@ export function setupCounter(element: HTMLButtonElement) {
   setCounter(0)
 }
 
-export function readFile(base64Image: string): boolean {
+export const readFile = async (base64Image: string): Promise<boolean> => {
   console.log("readFile")
   console.log("readFile: input base64Image = ", base64Image)
+  await new Promise(resolve => setTimeout(resolve, 1000))
   return true
 }

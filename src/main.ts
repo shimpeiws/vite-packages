@@ -11,25 +11,35 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       accept="image/*"
     >
     <div id="image-output"></div>
+    <div id="res"></div>
   </div>
 `
 
 
-window.onload = function () {
+window.onload = async () => {
   const input = document.querySelector('#camera') as HTMLInputElement;
-  input.onchange = function () {
+  input.onchange = async () => {
     const files = input.files;
     if (files) {
       const file = files[0];
       console.info("file", file)
       const reader = new FileReader();
       reader.readAsDataURL(file);
-      reader.onload = function () {
+      reader.onload = async () => {
+        // Image Preview
         const imageElement = document.createElement('img');
         imageElement.src = reader.result as string;
         imageElement.width = 400;
         document.getElementById("image-output")?.appendChild(imageElement);
-        readFile(reader.result as string)
+
+        // Execcute Lib
+        const res = await readFile(reader.result as string)
+
+        // Output result
+        const pElement = document.createElement('p')
+        const node = document.createTextNode(String(res))
+        document.getElementById("res")?.appendChild(node)
+
       };
       reader.onerror = function (error) {
         console.log('Error: ', error);

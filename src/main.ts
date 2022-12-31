@@ -10,6 +10,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       capture="user"
       accept="image/*"
     >
+    <div id="image-output"></div>
   </div>
 `
 
@@ -24,6 +25,10 @@ window.onload = function () {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = function () {
+        const imageElement = document.createElement('img');
+        imageElement.src = reader.result as string;
+        imageElement.width = 400;
+        document.getElementById("image-output")?.appendChild(imageElement);
         readFile(reader.result as string)
       };
       reader.onerror = function (error) {

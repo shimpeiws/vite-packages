@@ -1,4 +1,7 @@
 import cv, { Mat, Rect } from "opencv-ts";
+// import * as ort from 'onnxruntime-node';
+
+// ort.InferenceSession.create('./model.onnx');
 
 cv.onRuntimeInitialized = () => {
   const src = cv.imread("inputCanvas");

@@ -36,7 +36,6 @@ window.onload = async () => {
         const res = await readFile(reader.result as string)
 
         // Output result
-        const pElement = document.createElement('p')
         const node = document.createTextNode(String(res))
         document.getElementById("res")?.appendChild(node)
 

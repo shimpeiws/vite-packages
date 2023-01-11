@@ -36,14 +36,14 @@ window.onload = async () => {
     video.play()
 
     while (true) {
-      // 3000秒ごとにループ
+      // 3000msecごとにループ
       await new Promise(resolve => setTimeout(resolve, 3000))
       if (ctx) {
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
       }
       const image = canvas.toDataURL('image/jpeg');
 
-      // Execcute Lib
+      // Execute Lib
       const res = await readFile(image as string)
 
       // Output result

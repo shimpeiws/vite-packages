@@ -1,5 +1,5 @@
 import './style.css'
-import { readFile } from '../lib/main'
+import { readFile, readAssetFile } from '../lib/main'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -44,6 +44,7 @@ window.onload = async () => {
       const image = canvas.toDataURL('image/jpeg');
 
       // Execute Lib
+      await readAssetFile()
       const res = await readFile(image as string)
 
       // Output result

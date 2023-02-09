@@ -1,5 +1,5 @@
 import './style.css'
-import { readFile } from '../lib/main'
+import { readFile, readAssetFile } from '../lib/main'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -17,6 +17,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 
 window.onload = async () => {
+  await readAssetFile()
+  
   const video = document.getElementById("video") as HTMLVideoElement
   const canvas = document.getElementById("picture") as HTMLCanvasElement
 

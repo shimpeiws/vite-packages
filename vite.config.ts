@@ -5,7 +5,7 @@ export default defineConfig({
     lib: {
       entry: './lib/main.ts',
       name: 'Module',
-      fileName: 'module'
+      fileName: (format) => `module.${format}.js`,
     }
   }
 })

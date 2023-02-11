@@ -7,17 +7,19 @@
     "dist",
     "index.d.ts"
   ],
-  "main": "./dist/counter.umd.cjs",
-  "module": "./dist/counter.js",
+  "main": "./dist/module.umd.cjs",
+  "module": "./dist/module.js",
   "types": "./index.d.ts",
   "exports": {
     "types": "./index.d.ts",
-    "import": "./dist/counter.js",
-    "require": "./dist/counter.umd.cjs"
+    "import": "./dist/module.js",
+    "require": "./dist/module.umd.cjs"
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "vite build",
+    "watch": "vite build --watch",
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "typescript": "^4.9.4",

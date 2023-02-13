@@ -7,6 +7,10 @@
     "dist",
     "index.d.ts"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shimpeiws/vite-packages.git"
+  },
   "main": "./dist/module.umd.cjs",
   "module": "./dist/module.js",
   "types": "./index.d.ts",

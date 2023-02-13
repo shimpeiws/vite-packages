@@ -11,7 +11,7 @@
     "url": "git+https://github.com/shimpeiws/vite-packages.git"
   },
   "main": "./dist/module.umd.cjs",
-  "module": "./dist/module.js",
+  "module": "./dist/module.es.js",
   "types": "./index.d.ts",
   "exports": {
     "types": "./index.d.ts",

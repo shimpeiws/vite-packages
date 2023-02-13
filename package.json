@@ -1,7 +1,7 @@
 {
-  "name": "vite-project",
+  "name": "@shimpeiws/vite-project",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "files": [
     "dist",
@@ -18,6 +18,11 @@
     "types": "./index.d.ts",
     "import": "./dist/module.js",
     "require": "./dist/module.umd.cjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "publishConfig": {
+    "@shimpeiws:registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "dev": "vite",

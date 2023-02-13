@@ -15,7 +15,7 @@
   "types": "./index.d.ts",
   "exports": {
     "types": "./index.d.ts",
-    "import": "./dist/module.js",
+    "import": "./dist/module.es.js",
     "require": "./dist/module.umd.cjs"
   },
   "author": "",
